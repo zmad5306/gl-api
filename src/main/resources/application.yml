@@ -2,3 +2,13 @@ server:
   port: 8080
   servlet:
     contextPath: /api
+zuul:
+  routes:
+    list:
+      path: /api/list/**
+      url: http://${LIST_SERVICE_SERVICE_HOST}:${LIST_SERVICE_SERVICE_PORT}
+      stripPrefix: false
+    dept:
+      path: /api/dept/**
+      url: http://${DEPT_SERVICE_SERVICE_HOST}:${DEPT_SERVICE_PORT}
+      stripPrefix: false
