@@ -5,7 +5,7 @@ metadata:
   labels:
     app: gl-api
 spec:
-  type: NodePort
+  type: ClusterIP
   sessionAffinity: ClientIP
   ports:
   - port: 8080
