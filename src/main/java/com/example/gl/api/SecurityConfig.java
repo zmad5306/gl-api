@@ -2,23 +2,39 @@ package com.example.gl.api;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	@Bean
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-			.withUser("bob")
-				.password("password")
-				.roles("USER")
-				.and()
-			.withUser("sue")
-				.password("password")
-				.roles("USER");
+	protected UserDetailsService userDetailsService() {
+		UserDetails user1 = 
+				 User.withDefaultPasswordEncoder()
+	                .username("bob")
+	                .password("password")
+	                .roles("USER")
+	                .build();
+		
+		UserDetails user2 = 
+				 User.withDefaultPasswordEncoder()
+	                .username("sue")
+	                .password("password")
+	                .roles("USER")
+	                .build();
+		
+		return new InMemoryUserDetailsManager(user1, user2);
 	}
 	
 	@Override
@@ -44,8 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.csrf()
+//				.disable();
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				.ignoringAntMatchers("/logout");
+				.ignoringAntMatchers("/logout")
+				.ignoringAntMatchers("/login");
 	}
 
 }
