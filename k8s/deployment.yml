@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gl-api-deployment
+  labels:
+    app: gl-api
+spec:
+  replicas: 3
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: gl-api
+  template:
+    metadata:
+      labels:
+        app: gl-api
+    spec:
+      containers:
+      - name: gl-api
+        image: gl-api:latest
+        ports:
+        - containerPort: 8080
