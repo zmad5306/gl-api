@@ -4,11 +4,11 @@ metadata:
   name: gl-api-service
   labels:
     app: gl-api
-  spec:
-    type: ClusterIp
-    sessionAffinity: ClientIP
-    ports:
-    - port: 8080
-      protocol: TCP
-    selector:
-      app: gl-api
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: gl-api

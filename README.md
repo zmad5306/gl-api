@@ -7,6 +7,12 @@ Grocery list API gateway
 
 `docker build . --build-arg version=0.0.1-SNAPSHOT -t gl-api:latest`
 
+## Deploy with Kubernetes
+
+`kubectl apply -f k8s/deployment.yml`
+
+`kubectl apply -f k8s/service.yml`
+
 # Authentication
 
 ## Login
