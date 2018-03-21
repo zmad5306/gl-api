@@ -5,7 +5,9 @@ Grocery list API gateway
 
 `gradlew build`
 
-`docker build . --build-arg version=0.0.1-SNAPSHOT -t gl-api:latest`
+`docker build . --build-arg version=0.0.1-SNAPSHOT -t zmad5306/gl-api:latest`
+
+`docker push zmad5306/gl-api:latest`
 
 ## Deploy with Kubernetes
 
@@ -13,11 +15,17 @@ Grocery list API gateway
 
 `kubectl apply -f k8s/service.yml`
 
+### Other useful commands
+
+#### Get environment vars from a pod
+
+`kubectl exec gl-api-deployment-66f9457944-2qmmm env`
+
 # Authentication
 
 ## Login
 
-If an HTTP response code `401 - Unauthorized` is returned from an API call the user needs to login. This is accomplished by sending a `POST` request to `/api/login` including a `username` and `password` parameter.
+If an HTTP response code `401 - Unauthorized` is returned from an API call the user needs to login. This is accomplished by sending a `POST` request to `/login` including a `username` and `password` parameter.
 
 ## Authorization
 
@@ -25,7 +33,7 @@ If an HTTP response code `403 - Forbidden` is returned from an API call the user
 
 ## Logout
 
-A session may be ended by sending a `GET` request to `/api/logout`
+A session may be ended by sending a `GET` request to `/logout`
 
 ## CSRF Protection
 

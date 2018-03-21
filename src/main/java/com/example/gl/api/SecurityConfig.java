@@ -2,23 +2,37 @@ package com.example.gl.api;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 			.withUser("bob")
-				.password("password")
+				.password(passwordEncoder().encode("password"))
 				.roles("USER")
 				.and()
 			.withUser("sue")
-				.password("password")
-				.roles("USER");
+				.password(passwordEncoder().encode("password"))
+				.roles("USER")
+			.and()
+				.passwordEncoder(passwordEncoder());
 	}
 	
 	@Override
@@ -44,8 +58,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.csrf()
+//				.disable();
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				.ignoringAntMatchers("/logout");
+				.ignoringAntMatchers("/logout")
+				.ignoringAntMatchers("/login");
 	}
 
 }
