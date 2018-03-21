@@ -5,7 +5,9 @@ Grocery list API gateway
 
 `gradlew build`
 
-`docker build . --build-arg version=0.0.1-SNAPSHOT -t gl-api:latest`
+`docker build . --build-arg version=0.0.1-SNAPSHOT -t zmad5306/gl-api:latest`
+
+`docker push zmad5306/gl-api:latest`
 
 ## Deploy with Kubernetes
 
