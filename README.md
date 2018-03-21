@@ -30,3 +30,10 @@ All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cooki
 | -------- | -------- |
 | bob      | password |
 | sue      | password |
+
+# APIs
+
+| Base Path    | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| /api/dept/** | Departments API, see https://github.com/zmad5306/gl-dept |
+| /api/list/** | List API, see https://github.com/zmad5306/gl-list        |
