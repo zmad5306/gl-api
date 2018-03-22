@@ -10,7 +10,7 @@ zuul:
       path: /api/dept/**
       url: http://${GL_DEPT_SERVICE_SERVICE_HOST}:${GL_DEPT_SERVICE_PORT_8080_TCP_PORT}
       stripPrefix: false
-    list:
+    item:
       path: /api/item/**
       url: http://${GL_ITEM_SERVICE_SERVICE_HOST}:${GL_ITEM_SERVICE_PORT_8080_TCP_PORT}
       stripPrefix: false
