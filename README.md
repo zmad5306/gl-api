@@ -9,12 +9,6 @@ Grocery list API gateway
 
 `docker push zmad5306/gl-api:latest`
 
-## Deploy with Kubernetes
-
-`kubectl apply -f k8s/deployment.yml`
-
-`kubectl apply -f k8s/service.yml`
-
 ### Other useful commands
 
 #### Get environment vars from a pod
