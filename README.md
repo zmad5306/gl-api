@@ -25,7 +25,7 @@ Grocery list API gateway
 
 ## Login
 
-If an HTTP response code `401 - Unauthorized` is returned from an API call the user needs to login. This is accomplished by sending a `POST` request to `/login` including a `username` and `password` parameter.
+If an HTTP response code `401 - Unauthorized` is returned from an API call the user needs to login. This is accomplished by sending a `POST` request to `/api/login` including a `username` and `password` parameter.
 
 ## Authorization
 
@@ -33,7 +33,7 @@ If an HTTP response code `403 - Forbidden` is returned from an API call the user
 
 ## Logout
 
-A session may be ended by sending a `GET` request to `/logout`
+A session may be ended by sending a `GET` request to `/api/logout`
 
 ## CSRF Protection
 
@@ -51,3 +51,4 @@ All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cooki
 | ------------ | -------------------------------------------------------- |
 | /api/dept/** | Departments API, see https://github.com/zmad5306/gl-dept |
 | /api/list/** | List API, see https://github.com/zmad5306/gl-list        |
+| /api/item/** | Item API, see https://github.com/zmad5306/gl-item        |
