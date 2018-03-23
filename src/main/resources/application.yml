@@ -6,14 +6,14 @@ zuul:
   routes:
     list:
       path: /list/**
-      url: http://${GL_LIST_SERVICE_SERVICE_HOST}:${GL_LIST_SERVICE_PORT_8080_TCP_PORT}
+      url: http://gl-list-service:8080
       stripPrefix: false
       
     dept:
       path: /dept/**
-      url: http://${GL_DEPT_SERVICE_SERVICE_HOST}:${GL_DEPT_SERVICE_PORT_8080_TCP_PORT}
+      url: http://gl-dept-service:8080
       stripPrefix: false
     item:
       path: /item/**
-      url: http://${GL_ITEM_SERVICE_SERVICE_HOST}:${GL_ITEM_SERVICE_PORT_8080_TCP_PORT}
+      url: http://gl-item-service:8080
       stripPrefix: false
