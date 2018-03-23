@@ -1,16 +1,19 @@
 server:
   port: 8080
+  servlet:
+    contextPath: /api
 zuul:
   routes:
     list:
-      path: /api/list/**
+      path: /list/**
       url: http://${GL_LIST_SERVICE_SERVICE_HOST}:${GL_LIST_SERVICE_PORT_8080_TCP_PORT}
       stripPrefix: false
+      
     dept:
-      path: /api/dept/**
+      path: /dept/**
       url: http://${GL_DEPT_SERVICE_SERVICE_HOST}:${GL_DEPT_SERVICE_PORT_8080_TCP_PORT}
       stripPrefix: false
     item:
-      path: /api/item/**
+      path: /item/**
       url: http://${GL_ITEM_SERVICE_SERVICE_HOST}:${GL_ITEM_SERVICE_PORT_8080_TCP_PORT}
       stripPrefix: false
