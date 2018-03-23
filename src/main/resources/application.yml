@@ -17,3 +17,6 @@ zuul:
       path: /item/**
       url: http://gl-item-service:8080
       stripPrefix: false
+logging:
+  level:
+    org.springframework.security: DEBUG
