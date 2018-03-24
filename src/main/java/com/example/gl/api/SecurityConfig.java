@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.logoutUrl("/logout")
+				.logoutSuccessHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK))
 				.permitAll()
 				.and()
 			.csrf()
