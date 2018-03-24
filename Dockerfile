@@ -1,4 +1,4 @@
-FROM openjdk:jre-slim
+FROM openjdk:10-jre-slim
 ARG version
 EXPOSE 8080
 RUN mkdir -p /app/
