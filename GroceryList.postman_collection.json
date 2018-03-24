@@ -10,7 +10,7 @@
 		{
 			"name": "Login",
 			"request": {
-				"url": "http://minikube:31726/api/login",
+				"url": "http://grocery-list/api/login",
 				"method": "POST",
 				"header": [
 					{
@@ -43,7 +43,7 @@
 		{
 			"name": "Logout",
 			"request": {
-				"url": "http://minikube:31726/api/logout",
+				"url": "http://grocery-list/api/logout",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -54,7 +54,7 @@
 		{
 			"name": "Get Departments",
 			"request": {
-				"url": "http://minikube:31726/api/dept/",
+				"url": "http://grocery-list/api/dept/",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -65,7 +65,7 @@
 		{
 			"name": "Get Department",
 			"request": {
-				"url": "http://minikube:31726/api/dept/5ab4cf0b52faff0001f95039",
+				"url": "http://grocery-list/api/dept/5ab4cf0b52faff0001f95039",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -76,7 +76,7 @@
 		{
 			"name": "Get Lists",
 			"request": {
-				"url": "http://minikube:31726/api/list/",
+				"url": "http://grocery-list/api/list/",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -85,9 +85,20 @@
 			"response": []
 		},
 		{
+			"name": "Get List",
+			"request": {
+				"url": "http://grocery-list/api/list/5ab4da845f15030001942891",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets a single list"
+			},
+			"response": []
+		},
+		{
 			"name": "Create List",
 			"request": {
-				"url": "http://minikube:31726/api/list/",
+				"url": "http://grocery-list/api/list/",
 				"method": "POST",
 				"header": [
 					{
@@ -105,20 +116,9 @@
 			"response": []
 		},
 		{
-			"name": "Get List",
-			"request": {
-				"url": "http://minikube:31726/api/list/5ab4da845f15030001942891",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "Gets a single list"
-			},
-			"response": []
-		},
-		{
 			"name": "Update list",
 			"request": {
-				"url": "http://minikube:31726/api/list/5ab4da845f15030001942891",
+				"url": "http://grocery-list/api/list/5ab541bb65220500019f3720",
 				"method": "PUT",
 				"header": [
 					{
@@ -129,7 +129,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"my second list\"\n}"
+					"raw": "{\n    \"name\": \"my second list!!!\"\n}"
 				},
 				"description": "Updates a list"
 			},
@@ -138,7 +138,7 @@
 		{
 			"name": "Delete List",
 			"request": {
-				"url": "http://minikube:31726/api/list/5ab4db115f15030001942892",
+				"url": "http://grocery-list/api/list/5ab541bb65220500019f3720",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -149,7 +149,7 @@
 		{
 			"name": "Get Items",
 			"request": {
-				"url": "http://minikube:31726/api/item/5ab4da845f15030001942891",
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -158,9 +158,20 @@
 			"response": []
 		},
 		{
+			"name": "Get Items By Department",
+			"request": {
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all items from a list by department"
+			},
+			"response": []
+		},
+		{
 			"name": "Create Item",
 			"request": {
-				"url": "http://minikube:31726/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
 				"method": "POST",
 				"header": [
 					{
@@ -180,7 +191,7 @@
 		{
 			"name": "Update Item",
 			"request": {
-				"url": "http://minikube:31726/api/item/5ab4de1552faff0001d45093",
+				"url": "http://grocery-list/api/item/5ab541ec52faff00016ff781",
 				"method": "PUT",
 				"header": [
 					{
@@ -191,27 +202,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"active\": true,\n    \"quantity\": 9,\n    \"name\": \"steak\"\n}"
+					"raw": "{\n    \"active\": false,\n    \"quantity\": 11,\n    \"name\": \"steak!\"\n}"
 				},
 				"description": "Updates an item"
 			},
 			"response": []
 		},
 		{
-			"name": "Get Items By Department",
-			"request": {
-				"url": "http://minikube:31726/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "Gets all items from a list by department"
-			},
-			"response": []
-		},
-		{
 			"name": "Delete Item",
 			"request": {
-				"url": "http://minikube:31726/api/item/5ab4de1552faff0001d45093",
+				"url": "http://grocery-list/api/item/5ab541ec52faff00016ff781",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
