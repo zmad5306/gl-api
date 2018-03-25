@@ -46,3 +46,5 @@ All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cooki
 | /api/dept/** | Departments API, see https://github.com/zmad5306/gl-dept |
 | /api/list/** | List API, see https://github.com/zmad5306/gl-list        |
 | /api/item/** | Item API, see https://github.com/zmad5306/gl-item        |
+
+Postman library of all API endpoints: https://github.com/zmad5306/gl-api/blob/develop/GroceryList.postman_collection.json
