@@ -9,12 +9,6 @@ Grocery list API gateway
 
 `docker push zmad5306/gl-api:latest`
 
-### Other useful commands
-
-#### Get environment vars from a pod
-
-`kubectl exec gl-api-deployment-66f9457944-2qmmm env`
-
 # Authentication
 
 ## Login
