@@ -8,7 +8,6 @@ zuul:
       path: /list/**
       url: http://gl-list-service:8080
       stripPrefix: false
-      
     dept:
       path: /dept/**
       url: http://gl-dept-service:8080
