@@ -34,7 +34,19 @@ A session may be ended by sending a `GET` request to `/api/logout`
 The logged in user may be retrieved by sending a `GET` request to `/api/session/user`. The following JSON respon will be returned:
 
 ```
-
+{
+    "password": null,
+    "username": "sue",
+    "authorities": [
+        {
+            "authority": "ROLE_USER"
+        }
+    ],
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "enabled": true
+}
 ```
 
 ## CSRF Protection
