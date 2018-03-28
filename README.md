@@ -9,12 +9,6 @@ Grocery list API gateway
 
 `docker push zmad5306/gl-api:latest`
 
-### Other useful commands
-
-#### Get environment vars from a pod
-
-`kubectl exec gl-api-deployment-66f9457944-2qmmm env`
-
 # Authentication
 
 ## Login
@@ -66,3 +60,5 @@ All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cooki
 | /api/dept/** | Departments API, see https://github.com/zmad5306/gl-dept |
 | /api/list/** | List API, see https://github.com/zmad5306/gl-list        |
 | /api/item/** | Item API, see https://github.com/zmad5306/gl-item        |
+
+Postman library of all API endpoints: https://github.com/zmad5306/gl-api/blob/develop/GroceryList.postman_collection.json
