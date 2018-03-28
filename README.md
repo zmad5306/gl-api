@@ -29,6 +29,14 @@ If an HTTP response code `403 - Forbidden` is returned from an API call the user
 
 A session may be ended by sending a `GET` request to `/api/logout`
 
+## Current User
+
+The logged in user may be retrieved by sending a `GET` request to `/api/session/user`. The following JSON respon will be returned:
+
+```
+
+```
+
 ## CSRF Protection
 
 All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cookie is returned from the API Gateway when the first `GET` request is made.

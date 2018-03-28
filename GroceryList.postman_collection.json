@@ -15,8 +15,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
+						"value": "application/x-www-form-urlencoded"
 					}
 				],
 				"body": {
@@ -25,18 +24,27 @@
 						{
 							"key": "username",
 							"value": "sue",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "password",
 							"value": "password",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"description": "Log's in as sue."
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"url": "http://grocery-list/api/session/user",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets the logged in user."
 			},
 			"response": []
 		},
@@ -103,13 +111,12 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"my first list\"\n}"
+					"raw": "{\n  \"name\": \"my first list\"\n}"
 				},
 				"description": "Creates a new list"
 			},
@@ -123,8 +130,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -176,13 +182,12 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"active\": true,\n\t\"quantity\": 3,\n\t\"name\": \"pizza\"\n}"
+					"raw": "{\n  \"active\": true,\n  \"quantity\": 3,\n  \"name\": \"pizza\"\n}"
 				},
 				"description": "Saves a new item"
 			},
@@ -196,8 +201,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
