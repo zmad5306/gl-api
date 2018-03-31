@@ -16,3 +16,9 @@ zuul:
       path: /item/**
       url: http://gl-item-service:8080
       stripPrefix: false
+spring:
+  session:
+    store-type: mongodb
+  data:
+    mongodb:
+      uri: ${mongo-db-uri}
