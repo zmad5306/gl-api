@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "GroceryList GCP",
+		"name": "GroceryList GKE",
 		"_postman_id": "bb29ef2e-ffc8-7bf5-e974-43391c9ad4b2",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
