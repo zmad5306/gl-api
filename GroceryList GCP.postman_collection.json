@@ -1,0 +1,234 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GroceryList GCP",
+		"_postman_id": "bb29ef2e-ffc8-7bf5-e974-43391c9ad4b2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "sue",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Log's in as sue."
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/session/user",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets the logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/logout",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Log's user out"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Departments",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/dept/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get's all departments"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Department",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/dept/5abe0b8c307f00000172a58b",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get's a single department"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lists",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/list/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get's all lists for logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/list/5abe2d0ea68381000106ed02",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets a single list"
+			},
+			"response": []
+		},
+		{
+			"name": "Create List",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/list/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"my second list\"\n}"
+				},
+				"description": "Creates a new list"
+			},
+			"response": []
+		},
+		{
+			"name": "Update list",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/list/5ab541bb65220500019f3720",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"my second list!!!\"\n}"
+				},
+				"description": "Updates a list"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete List",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/list/5ab541bb65220500019f3720",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Deletes a list"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Items",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all items in a list"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Items By Department",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e/5abe0b8c307f00000172a58b",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Gets all items from a list by department"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Item",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e/5abe0b8c307f00000172a58b",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"active\": true,\n  \"quantity\": 3,\n  \"name\": \"pizza\"\n}"
+				},
+				"description": "Saves a new item"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/item/5ab541ec52faff00016ff781",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"active\": false,\n    \"quantity\": 11,\n    \"name\": \"steak!\"\n}"
+				},
+				"description": "Updates an item"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"url": "https://gl.zacharymaddox.us/api/item/5abe3173368c020001a9d12d",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Deletes item"
+			},
+			"response": []
+		}
+	]
+}
