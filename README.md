@@ -7,6 +7,10 @@ Grocery list API gateway
 
 `docker push zmad5306/gl-api:latest`
 
+## Circle CI Build
+
+https://circleci.com/gh/zmad5306/gl-api
+
 # Authentication
 
 ## Login
