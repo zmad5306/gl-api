@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "."]
+  args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:latest", "."]
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api"]
 - name: 'gcr.io/cloud-builders/kubectl'
