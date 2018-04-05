@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:latest", "."]
+  args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:latest", "--build-arg", "version=0.0.1-SNAPSHOT", "."]
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api"]
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -11,4 +11,4 @@ steps:
   - gl-api=gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-f'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=grocery-list'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=dev'
