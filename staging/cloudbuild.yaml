@@ -1,7 +1,7 @@
 steps:
   # build container
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:latest", "--build-arg", "version=0.0.1-SNAPSHOT", "."]
+    args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "--build-arg", "version=0.0.1-SNAPSHOT", "."]
     
   # Retrieve and decrypt the GitHub Hub configuration. 
   - name: 'gcr.io/cloud-builders/gcloud'
