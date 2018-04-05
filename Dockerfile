@@ -3,7 +3,7 @@ COPY . /src
 WORKDIR /src
 RUN ["./gradlew", "build"]
 
-FROM openjdk:10-jre-slim AS production
+FROM openjdk:10-jre-slim
 ARG version
 EXPOSE 8080
 RUN mkdir -p /app/
