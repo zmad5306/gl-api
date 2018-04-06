@@ -85,7 +85,7 @@ steps:
         hub commit -F- <<EOF
         Update the gl-api-deployment application
 
-        This commit updates the helloworld deployment container image to:
+        This commit updates the gl-api deployment container image to:
 
             gcr.io/${PROJECT_ID}/github-zmad5306-gl-api:${TAG_NAME}.
 
@@ -98,6 +98,88 @@ steps:
         path: /config
       - name: 'kube'
         path: /kube
+        
+  # Create a pull request on the https://github.com/zmad5306/gl-infrastructure-production.git repo
+  # to update the gl-api deployment configuration.
+  - name: 'gcr.io/hightowerlabs/hub'
+    env:
+      - 'HUB_CONFIG=/config/hub'
+      - 'KUBECONFIG=/kube/config'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        ACTIVE_ACCOUNT=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
+
+        hub config --global credential.https://github.com.helper /usr/local/bin/hub-credential-helper
+        hub config --global hub.protocol https
+        hub config --global user.email "$${ACTIVE_ACCOUNT}"
+        hub config --global user.name "Google Container Builder"
+        
+        # Clone the ${_GITHUB_USERNAME}/gl-infrastructure-staging repo
+        # and patch the gl-api deployment container image.
+        hub clone "https://github.com/${_GITHUB_USERNAME}/gl-infrastructure-qa.git"
+
+        # Clone the ${_GITHUB_USERNAME}/gl-infrastructure-production repo
+        # and patch the gl-api deployment container image.
+        hub clone "https://github.com/zmad5306/gl-infrastructure-production.git"
+        
+        # Extract the container image from the qa api deployment configuration file.
+        CONTAINER_IMAGE=$(kubectl apply --dry-run \
+           -f gl-infrastructure-qa/kubernetes/deployments/gl-api-deployment.yaml \
+           -o jsonpath='{.spec.template.spec.containers[?(@.name == "gl-api")].image}')
+
+        cat <<EOF > patch.yaml
+        spec:
+          template:
+            spec:
+              containers:
+                - name: gl-api
+                  image: $${CONTAINER_IMAGE}
+        EOF
+
+        kubectl patch --local -o yaml \
+          -f gl-infrastructure-production/kubernetes/deployments/gl-api-deployment.yaml \
+          -p "$(cat patch.yaml)" \
+          > gl-api-deployment.yaml
+
+        mv gl-api-deployment.yaml gl-infrastructure-production/kubernetes/deployments/gl-api-deployment.yaml
+
+        # Change to the gl-infrastructure-production directory
+        # commit the local changes, then issue a pull request.
+        cd gl-infrastructure-production
+
+        git checkout -b update-deployment-${BUILD_ID}
+
+        hub add kubernetes/deployments/gl-api-deployment.yaml
+ 
+        hub commit -F- <<EOF
+        Update the gl-api-deployment deployment
+
+        This commit updates the gl-api-deployment container image to:
+
+            $${CONTAINER_IMAGE}
+
+        Build ID: ${BUILD_ID}
+        EOF
+
+        hub push origin update-deployment-${BUILD_ID}
+
+        # Create a pull request to the ${_GITHUB_USERNAME}/gl-infrastructure-production repo.
+        hub pull-request -F- <<EOF
+        Update the gl-api deployment
+
+        This commit updates the gl-api deployment container image to:
+
+            $${CONTAINER_IMAGE}
+
+        Build ID: ${BUILD_ID}
+        EOF
+    volumes:
+      - name: 'config'
+        path: /config
+      - name: 'kube'
+        path: /kube     
 
 images:
   - 'gcr.io/${PROJECT_ID}/github-zmad5306-gl-api:${TAG_NAME}'
