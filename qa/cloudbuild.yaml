@@ -43,8 +43,6 @@ steps:
       - name: 'kube'
         path: /kube
 
-   # Clone the https://github.com/zmad5306/gl-infrastructure-qa.git repo.
-  # deployment manifests.
   - name: 'gcr.io/hightowerlabs/hub'
     env:
       - 'HUB_CONFIG=/config/hub'
@@ -60,7 +58,7 @@ steps:
         hub config --global user.email "$${ACTIVE_ACCOUNT}"
         hub config --global user.name "Google Container Builder"
 
-        hub clone "https://github.com/${_GITHUB_USERNAME}/gl-infrastructure-qa.git"
+        hub clone "https://github.com/zmad5306/gl-infrastructure-qa.git"
 
         cd gl-infrastructure-qa
 
@@ -99,8 +97,6 @@ steps:
       - name: 'kube'
         path: /kube
         
-  # Create a pull request on the https://github.com/zmad5306/gl-infrastructure-production.git repo
-  # to update the gl-api deployment configuration.
   - name: 'gcr.io/hightowerlabs/hub'
     env:
       - 'HUB_CONFIG=/config/hub'
