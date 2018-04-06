@@ -70,5 +70,3 @@ Postman libraries are avaialble for each environment. See the following files at
 
 * GroceryList Development.postman_collection.json
 * GroceryList Staging.postman_collection.json
-
-test
