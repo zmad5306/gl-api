@@ -112,12 +112,8 @@ steps:
         hub config --global user.email "$${ACTIVE_ACCOUNT}"
         hub config --global user.name "Google Container Builder"
         
-        # Clone the ${_GITHUB_USERNAME}/gl-infrastructure-staging repo
-        # and patch the gl-api deployment container image.
-        hub clone "https://github.com/${_GITHUB_USERNAME}/gl-infrastructure-qa.git"
+        hub clone "https://github.com/zmad5306/gl-infrastructure-qa.git"
 
-        # Clone the ${_GITHUB_USERNAME}/gl-infrastructure-production repo
-        # and patch the gl-api deployment container image.
         hub clone "https://github.com/zmad5306/gl-infrastructure-production.git"
         
         # Extract the container image from the qa api deployment configuration file.
@@ -161,7 +157,6 @@ steps:
 
         hub push origin update-deployment-${BUILD_ID}
 
-        # Create a pull request to the ${_GITHUB_USERNAME}/gl-infrastructure-production repo.
         hub pull-request -F- <<EOF
         Update the gl-api deployment
 
