@@ -50,6 +50,7 @@ The logged in user may be retrieved by sending a `GET` request to `/api/session/
 All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cookie is returned from the API Gateway when the first `GET` request is made.
 
 ## In Memory Users (for testing)
+
 | Username | Password |
 | -------- | -------- |
 | bob      | password |
@@ -63,4 +64,9 @@ All requests made (excluding logout) require the `XSRF-TOKEN` cookie. This cooki
 | /api/list/** | List API, see https://github.com/zmad5306/gl-list        |
 | /api/item/** | Item API, see https://github.com/zmad5306/gl-item        |
 
-Postman library of all API endpoints: https://github.com/zmad5306/gl-api/blob/develop/GroceryList.postman_collection.json
+## Postman Libraries
+
+Postman libraries are avaialble for each environment. See the following files at the root of the project:
+
+* GroceryList Development.postman_collection.json
+* GroceryList Staging.postman_collection.json

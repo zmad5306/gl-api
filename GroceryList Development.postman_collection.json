@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "GroceryList GKE",
-		"_postman_id": "bb29ef2e-ffc8-7bf5-e974-43391c9ad4b2",
+		"name": "GroceryList Development",
+		"_postman_id": "a0ae6865-4d0f-1fb3-ede2-ff574a1a4a7a",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,7 +10,7 @@
 		{
 			"name": "Login",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/login",
+				"url": "http://grocery-list/api/login",
 				"method": "POST",
 				"header": [
 					{
@@ -43,7 +43,7 @@
 		{
 			"name": "Get User",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/session/user",
+				"url": "http://grocery-list/api/session/user",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -54,7 +54,7 @@
 		{
 			"name": "Logout",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/logout",
+				"url": "http://grocery-list/api/logout",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -65,7 +65,7 @@
 		{
 			"name": "Get Departments",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/dept/",
+				"url": "http://grocery-list/api/dept/",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -76,7 +76,7 @@
 		{
 			"name": "Get Department",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/dept/5abe0b8c307f00000172a58b",
+				"url": "http://grocery-list/api/dept/5ab4cf0b52faff0001f95039",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -87,7 +87,7 @@
 		{
 			"name": "Get Lists",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/list/",
+				"url": "http://grocery-list/api/list/",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -98,7 +98,7 @@
 		{
 			"name": "Get List",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/list/5abe2d0ea68381000106ed02",
+				"url": "http://grocery-list/api/list/5ab4da845f15030001942891",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -109,18 +109,17 @@
 		{
 			"name": "Create List",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/list/",
+				"url": "http://grocery-list/api/list/",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"my second list\"\n}"
+					"raw": "{\n  \"name\": \"my first list\"\n}"
 				},
 				"description": "Creates a new list"
 			},
@@ -129,13 +128,12 @@
 		{
 			"name": "Update list",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/list/5ab541bb65220500019f3720",
+				"url": "http://grocery-list/api/list/5ab541bb65220500019f3720",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -149,7 +147,7 @@
 		{
 			"name": "Delete List",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/list/5ab541bb65220500019f3720",
+				"url": "http://grocery-list/api/list/5ab541bb65220500019f3720",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -160,7 +158,7 @@
 		{
 			"name": "Get Items",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e",
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -171,7 +169,7 @@
 		{
 			"name": "Get Items By Department",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e/5abe0b8c307f00000172a58b",
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -182,13 +180,12 @@
 		{
 			"name": "Create Item",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/item/5abe314db3858100018b572e/5abe0b8c307f00000172a58b",
+				"url": "http://grocery-list/api/item/5ab4da845f15030001942891/5ab4cf0b52faff0001f95039",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -202,13 +199,12 @@
 		{
 			"name": "Update Item",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/item/5ab541ec52faff00016ff781",
+				"url": "http://grocery-list/api/item/5ab541ec52faff00016ff781",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -222,7 +218,7 @@
 		{
 			"name": "Delete Item",
 			"request": {
-				"url": "https://gl.zacharymaddox.us/api/item/5abe3173368c020001a9d12d",
+				"url": "http://grocery-list/api/item/5ab541ec52faff00016ff781",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
