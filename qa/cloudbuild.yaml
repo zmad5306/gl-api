@@ -1,3 +1,4 @@
+# Runs on tag of release/* branch
 steps:
   # build container
   - name: 'gcr.io/cloud-builders/docker'

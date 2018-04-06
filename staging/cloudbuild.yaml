@@ -1,3 +1,4 @@
+# Runs on any commit to develop branch
 steps:
   # build container
   - name: 'gcr.io/cloud-builders/docker'
