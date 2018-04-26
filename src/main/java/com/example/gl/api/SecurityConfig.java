@@ -60,10 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.csrf()
-//				.disable();
-				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				.ignoringAntMatchers("/logout")
-				.ignoringAntMatchers("/login");
+				.disable();
+//				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//				.ignoringAntMatchers("/logout")
+//				.ignoringAntMatchers("/login");
 	}
 
 }
