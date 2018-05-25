@@ -77,7 +77,7 @@ Postman libraries are avaialble for each environment. See the following files at
 
 #### Storage Bucket
 
-A storage bucket is required to store the an encrypted git hub authenticaion token. This is utilzed by the builds to authenticate to github to push changes, create branches and create pull requests. The name of the storage bucket is passed to the builds as Substitution Variables (see _GIT_HUB_KEY_BUCKET_NAME below).
+A storage bucket is required to store an encrypted GitHub OAuth authenticaion token. This is utilzed by the builds to authenticate to GitHub to push changes, create branches and create pull requests. The name of the storage bucket is passed to the builds as Substitution Variables (see _GIT_HUB_KEY_BUCKET_NAME below).
 
 #### Cryptographic Keys
 
