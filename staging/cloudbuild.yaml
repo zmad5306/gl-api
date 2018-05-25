@@ -2,7 +2,7 @@
 steps:
   # build container
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-api:$COMMIT_SHA", "--build-arg", "version=0.0.1-SNAPSHOT", "."]
+    args: ["build", "-t", "gcr.io/${_PROJECT_ID}/github-zmad5306-gl-api:$COMMIT_SHA", "--build-arg", "version=0.0.1-SNAPSHOT", "."]
     
   # Retrieve and decrypt the GitHub Hub configuration. 
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -10,7 +10,7 @@ steps:
     args:
       - '-c'
       - |
-        gsutil cp gs://git-hub-key/hub.enc hub.enc
+        gsutil cp gs://${_GIT_HUB_KEY_BUCKET_NAME}/hub.enc hub.enc
 
         gcloud kms decrypt \
           --ciphertext-file hub.enc \
