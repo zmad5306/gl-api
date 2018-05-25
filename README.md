@@ -76,9 +76,13 @@ Postman libraries are avaialble for each environment. See the following files at
 ### Staging
 
 Name: API Manger Staging CI Build
+
 Trigger type: Branch
+
 Branch (regex): ^develop$
+
 Build configration: cloudbuild.yaml
+
 cloudbuild.yaml location: /staging/cloudbuild.yaml
 
 #### Substitution variables
